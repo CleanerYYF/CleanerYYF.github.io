@@ -43,7 +43,25 @@
     
 
     <div class="post-md">
-        
+        <p><img src="/../pic/blog_go_1.jpg" alt="go"></p>
+<p>[toc]</p>
+<h1><span id="特性">特性</span></h1><p>静态强类型<br>编译语言，跨平台编译<br>并发性好、内存安全、GC机制<br>适用于：服务器编程、云平台、区块链、分布式系统、网络编程</p>
+<h1><span id="基本语言结构">基本语言结构</span></h1><h2><span id="语言结构">语言结构</span></h2><p>Go 语言程序代码的基础组成分为以下几个部分：</p>
+<ul>
+<li>包声明</li>
+<li>引入包</li>
+<li>函数</li>
+<li>变量</li>
+<li>语句 &amp; 表达式</li>
+<li>注释<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 包声明，Go语言以包作为管理单位</span></span><br><span class="line"><span class="comment">// 每个文件必须要先进行包声明</span></span><br><span class="line"><span class="comment">// 程序必须有一个main包（重要）</span></span><br><span class="line"><span class="keyword">package</span> main </span><br><span class="line"></span><br><span class="line"><span class="comment">// 引入包 </span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 主函数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;<span class="comment">// 左括号必须与函数名同行</span></span><br><span class="line">  <span class="comment">// 调用函数，大部分需要先导入包</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;Hello Go World! &quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="基础语法">基础语法</span></h2><h3><span id="标记">标记</span></h3>代码中独立的单词、符号或带引号的字符串<h3><span id="行分隔符">行分隔符</span></h3>语句之间用回车符自动隔开,但是多个语句放在同一行需要用;隔开(不推荐这种做法)<h3><span id="注释">注释</span></h3>和C一样, 单行: &#x2F;&#x2F;    多行: &#x2F;*     *&#x2F;<h3><span id="标识符">标识符</span></h3>标识符用来命名变量、类型等程序实体。<br>数字字母下划线组合, 数字不能在开头, 不能使用关键字<h3><span id="字符串">字符串</span></h3>连接: “A” + “B” 返回值为 “AB”<br>格式化: fmt.Sprintf(“%d,%s”, 1, “234”) 返回值为 “1234”<br>格式化标号：<blockquote>
+<p>%T：变量所属类型</p>
+</blockquote>
+</li>
+</ul>
+<h2><span id="数据类型">数据类型</span></h2><h3><span id="基本数据类型">基本数据类型</span></h3><p>布尔：bool<br>数字：整型：int  浮点型：float32、float64<br>字符串：单个字节连接</p>
+<h3><span id="派生类型">派生类型</span></h3><p>包括：<br>指针类型（Pointer）<br>数组类型<br>结构化类型(struct)<br>Channel 类型<br>函数类型<br>切片类型<br>接口类型（interface）<br>Map 类型</p>
+<h4><span id="指针">指针</span></h4>
     </div>
 
 </div>
