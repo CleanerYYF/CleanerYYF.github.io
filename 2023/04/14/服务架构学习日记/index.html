@@ -43,7 +43,23 @@
     
 
     <div class="post-md">
-        <h2><span id="2023x2f4x2f14-服务架构和unix版权战争">2023&#x2F;4&#x2F;14 服务架构和Unix版权战争</span></h2><h4><span id="1服务架构发展">1.服务架构发展</span></h4><p><img src="/../pic/blog_architecture2.png" alt="架构发展"><br>注意点：</p>
+        <!-- toc -->
+
+<ul>
+<li><a href="#2023414-%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%92%8Cunix%E7%89%88%E6%9D%83%E6%88%98%E4%BA%89">2023&#x2F;4&#x2F;14 服务架构和Unix版权战争</a><ul>
+<li><a href="#1%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%8F%91%E5%B1%95">1.服务架构发展</a></li>
+<li><a href="#2-unix%E7%89%88%E6%9D%83%E6%88%98%E4%BA%89">2. Unix版权战争</a></li>
+</ul>
+</li>
+<li><a href="#2023417-%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%E4%B9%8Brpc">2023&#x2F;4&#x2F;17 远程服务调用之RPC</a><ul>
+<li><a href="#1rpc%E8%B5%B7%E6%BA%90">1.RPC起源</a></li>
+<li><a href="#2rpc%E5%8F%91%E5%B1%95">2.RPC发展</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+
+<h2><span id="2023x2f4x2f14-服务架构和unix版权战争">2023&#x2F;4&#x2F;14 服务架构和Unix版权战争</span></h2><h4><span id="1服务架构发展">1.服务架构发展</span></h4><p><img src="/../pic/blog_architecture2.png" alt="架构发展"><br>注意点：</p>
 <blockquote>
 <ol>
 <li>SOA强调各服务统一标准，微服务架构强调围绕业务业务和能力来构建系统，两者时间上有先后顺序，但不是SOA衍生出了微服务</li>
@@ -59,6 +75,20 @@
 </ol>
 </blockquote>
 <h4><span id="2-unix版权战争">2. Unix版权战争</span></h4><p>unix本可作为一个优秀的开源项目顺利成果的促进人类社会发展，然后由于AT&amp;T的资本和BSD之间的版权战争，在发展的黄金时期（CPU快速发展的时期）停滞不前，如今基于其的IOS系统始终作为未开源的系统被资本独占使用<br>而在unix停滞不前的时候，基于其的Linux快速发展，由于其秉持开源精神，现如今在各种安卓系统和终端系统上大放异彩</p>
+<h2><span id="2023x2f4x2f17-远程服务调用之rpc">2023&#x2F;4&#x2F;17 远程服务调用之RPC</span></h2><h4><span id="1rpc起源">1.RPC起源</span></h4><p>在分布式应用发展过程中，存在调用远程服务中方法的需求</p>
+<h4><span id="2rpc发展">2.RPC发展</span></h4><p> 在RPC的发展中经历了所期望解决的目标问题的转变，如图<br><img src="/../pic/blog_architecture3.png" alt="RPC发展"><br>基本问题：</p>
+<blockquote>
+<ol>
+<li>数据表示：序列化与反序列化</li>
+<li>数据传输：服务数据传输、远程消息通知（wire protocol）</li>
+<li>方法表示：本地方法调用时直接通过将方法名转换为指针，在内存空间下寻址即可；远程方法通过接口定义语言描述</li>
+</ol>
+</blockquote>
+<p>RPC的实现技术方面也存在两个阶段的发展，如下图：<br><img src="/../pic/blog_architecture4.png" alt="RPC技术阶段"><br>统一阶段代表有：CORBA、Web Service<br>分裂阶段代表有：gRPC、bRPC、Dubbo等</p>
+<p>启发：</p>
+<ol>
+<li>通用往往意味着不好用，典型例子：OSI七层模型、SOA、CORBA、Web Service，因为没有一个应用能够完全使用所有功能，而标准化开销却是所有应用都要承担的</li>
+</ol>
 
     </div>
 
