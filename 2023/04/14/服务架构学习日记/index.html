@@ -56,6 +56,13 @@
 <li><a href="#2rpc%E5%8F%91%E5%B1%95">2.RPC发展</a></li>
 </ul>
 </li>
+<li><a href="#2023418-rest%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E9%A3%8E%E6%A0%BC">2023&#x2F;4&#x2F;18 REST接口设计风格</a><ul>
+<li><a href="#1-%E8%B5%B7%E6%BA%90">1. 起源</a></li>
+<li><a href="#2-%E5%8E%9F%E7%90%86">2. 原理</a></li>
+<li><a href="#3-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0restful%E7%9A%84%E6%8E%A5%E5%8F%A3">3. 如何实现RESTful的接口</a></li>
+<li><a href="#4-%E8%AF%84%E4%BB%B7">4. 评价</a></li>
+</ul>
+</li>
 </ul>
 <!-- tocstop -->
 
@@ -90,6 +97,41 @@
 <li>通用往往意味着不好用，典型例子：OSI七层模型、SOA、CORBA、Web Service，因为没有一个应用能够完全使用所有功能，而标准化开销却是所有应用都要承担的</li>
 <li>为了提升应用程序质量，编码工作适当繁琐是值得的</li>
 </ol>
+<h2><span id="2023x2f4x2f18-rest接口设计风格">2023&#x2F;4&#x2F;18 REST接口设计风格</span></h2><p>今天学习了REST设计风格</p>
+<p>最初了解到这个概念还是在找实习时面试官问到简历项目中是如何实现服务间调用的，我回答使用restTemplete的xxForObject方法进行调用，然后面试官恍然大悟说是http的方法进行调用的。面试后我便在简历的项目上赫然写上——“基于Http协议进行服务间调用”。</p>
+<p>如今回想起来觉得好笑，一直没弄清楚restTemplete的意思，现在一想，不就是REST模板吗。虽然REST和http强相关，但是也不能直接说就是基于http协议进行服务调用，因为http是应用层的一个网络通信协议，本身并不是一种服务间调用的方式。正如使用RPC协议进行服务调用时，虽然各种RPC协议作为应用层面或者说语言层面的服务调用方式，直接向下层调用了传输层的tcp协议，但不能说是基于tcp进行服务调用，因为这就不是一个层面的概念。</p>
+<p>或许正是对于这些产业技术基础概念的混淆或许为我失败的秋招添砖加瓦。</p>
+<h4><span id="1-起源">1. 起源</span></h4><p>Roy Thomas Fielding在其博士论文《Architectural Styles and the Design of Network-based Software Architectures》中首次提出REST，而他本人是HTTP1.0的专家组成员，这也就决定了REST必然和HTTP有着某种联系</p>
+<p>事实也是如此，REST设计风格和Http强相关</p>
+<h4><span id="2-原理">2. 原理</span></h4><p>REST（Representational State Transfer，表征状态转移），起初是用于指导架构风格与网络的软件架构设计，现在广泛认为是一种指导远程服务设计的设计风格，不是一种具体的协议，没有严格的协议要求，但是和具体的协议（http）密不可分</p>
+<p>其基本原理是面向资源编程，即将数据作为抽象的主体，把行为看作统一的接口，适应网络世界的交互方式。</p>
+<h4><span id="3-如何实现restful的接口">3. 如何实现RESTful的接口</span></h4><p>按照Fielding所述，满足REST风格的系统应该满足以下六大原则：</p>
+<blockquote>
+<ol>
+<li>客户端和服务端分离<br>前后端各司其职</li>
+<li>无状态<br>状态信息保存在服务交互过程中的上下文信息中</li>
+<li>可缓存<br>缓存是为了缓解由于无状态带来的网络效率下降</li>
+<li>分层系统<br>通过中间服务器，CDN等实现分层的服务端系统，也是为了提升效率</li>
+<li>统一接口<br>接口面向资源，通过资源ID来标识，面向资源编程</li>
+<li>按需代码<br>是可选原则，通过将业务代码保存为数据，需要时才运行，必要时才使用这个原则</li>
+</ol>
+</blockquote>
+<h4><span id="4-评价">4. 评价</span></h4><p>优点：</p>
+<blockquote>
+<ol>
+<li>通过路径标识资源，避免了RPC中对服务方法的统一编号所带来的问题</li>
+<li>基于成熟的http协议，编程中不用为远程通知消息花费太多精力</li>
+<li>降低接口学习成本，服务的方法对应着资源的操作，无需刻意去学习</li>
+</ol>
+</blockquote>
+<p>缺点</p>
+<blockquote>
+<ol>
+<li>与http高度绑定，无法实现http不支持的服务</li>
+<li>基于http，由于其包头开销大、字符消息等，不适用于高性能传输场景</li>
+<li>基于http，无法实现对于资源结构化描述</li>
+</ol>
+</blockquote>
 
     </div>
 
