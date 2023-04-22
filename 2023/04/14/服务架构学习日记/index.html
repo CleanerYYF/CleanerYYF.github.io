@@ -100,7 +100,7 @@
 <h2><span id="2023x2f4x2f18-rest接口设计风格">2023&#x2F;4&#x2F;18 REST接口设计风格</span></h2><p>今天学习了REST设计风格</p>
 <p>最初了解到这个概念还是在找实习时面试官问到简历项目中是如何实现服务间调用的，我回答使用restTemplete的xxForObject方法进行调用，然后面试官恍然大悟说是http的方法进行调用的。面试后我便在简历的项目上赫然写上——“基于Http协议进行服务间调用”。</p>
 <p>如今回想起来觉得好笑，一直没弄清楚restTemplete的意思，现在一想，不就是REST模板吗。虽然REST和http强相关，但是也不能直接说就是基于http协议进行服务调用，因为http是应用层的一个网络通信协议，本身并不是一种服务间调用的方式。正如使用RPC协议进行服务调用时，虽然各种RPC协议作为应用层面或者说语言层面的服务调用方式，直接向下层调用了传输层的tcp协议，但不能说是基于tcp进行服务调用，因为这就不是一个层面的概念。</p>
-<p>或许正是对于这些产业技术基础概念的混淆或许为我失败的秋招添砖加瓦。</p>
+<p>或许正是这些对于产业技术基础概念的混淆为我失败的秋招添砖加瓦。</p>
 <h4><span id="1-起源">1. 起源</span></h4><p>Roy Thomas Fielding在其博士论文《Architectural Styles and the Design of Network-based Software Architectures》中首次提出REST，而他本人是HTTP1.0的专家组成员，这也就决定了REST必然和HTTP有着某种联系</p>
 <p>事实也是如此，REST设计风格和Http强相关</p>
 <h4><span id="2-原理">2. 原理</span></h4><p>REST（Representational State Transfer，表征状态转移），起初是用于指导架构风格与网络的软件架构设计，现在广泛认为是一种指导远程服务设计的设计风格，不是一种具体的协议，没有严格的协议要求，但是和具体的协议（http）密不可分</p>
