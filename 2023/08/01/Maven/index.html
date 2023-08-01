@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <link rel="alternate icon" type="image/png" href="/img/favicon.png">
+    <title>Cleaners&#39; Blog | </title>
+    
+<link rel="stylesheet" href="/css/reset.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/css/markdown.css">
+
+    
+<link rel="stylesheet" href="/css/fonts.css">
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <div class="paper">
+            <div class="paper-main">
+                
+                    <div class="post-header">
+    <a class="logo" href="/">Cleaners&#39; Blog</a>
+    <a class="go-home" href="/">
+        <svg width="8" height="14" viewBox="0 0 8 14">
+            <path d="M7 1L1 7l6 6" stroke="#000" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+</div>
+                
+                <div class="post-main">
+
+    
+        <div class="post-main-title">
+            Maven笔记
+        </div>
+        <div class="post-meta">
+            2023-08-01
+        </div>
+    
+
+    <div class="post-md">
+        <!-- toc -->
+
+<ul>
+<li><a href="#%E4%BA%A7%E7%94%9F%E8%83%8C%E6%99%AF">产生背景</a></li>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD">基本功能</a><ul>
+<li><a href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E7%AE%A1%E7%90%86">项目结构管理</a></li>
+<li><a href="#%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86">依赖管理</a></li>
+<li><a href="#%E9%A1%B9%E7%9B%AE%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%8E%A7%E5%88%B6">项目生命周期控制</a></li>
+</ul>
+</li>
+<li><a href="#pom%E6%96%87%E4%BB%B6">POM文件</a></li>
+<li><a href="#%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%8A%9F%E8%83%BD">项目管理功能</a></li>
+<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
+</ul>
+<!-- tocstop -->
+
+<h2><span id="产生背景">产生背景</span></h2><p>早期在Java项目开发中（如Servlet），通过CVS进行jar文件的管理，缺乏一种构建项目的标准方法、项目组成的清晰定义、发布项目信息的简单方法以及跨多个项目共享 JAR 的方法。</p>
+<h2><span id="基本功能">基本功能</span></h2><p>Maven用于Java项目管理，主要有项目结构管理、依赖管理和项目生命周期管理。</p>
+<h3><span id="项目结构管理">项目结构管理</span></h3><p>通过规定标准的项目框架使项目标准化，方便不同开发者之间的协作，如图<img src="/../pic/maven_project_architecture.png"></p>
+<h3><span id="依赖管理">依赖管理</span></h3><p>通过中心化的仓库进行项目依赖（jar、war包等）管理，避免重复造轮子，提高项目的开发效率。</p>
+<h3><span id="项目生命周期控制">项目生命周期控制</span></h3><p>JAVA开发的生命周期包括：搭建项目结构、编码、测试、编译、打包、发布到环境测试、发布到生产环境。maven实现了自动化的控制，通过简单的命令或者可视化的按钮，即可实现相应生命周期的控制，免去了开发者自己编写大量脚本代码执行的过程。<img src="/../pic/maven_project_life.png"></p>
+<h2><span id="pom文件">POM文件</span></h2><p>POM是Maven的工作单元，是工程师与Maven交互的接口<br>POM基于XML文件，常用的标签字段如下</p>
+<ol>
+<li>project: 标识整个项目</li>
+<li>modelVersion：当前使用的对象模型版本</li>
+<li>groupId：创建项目的组织标识符，也用于在仓库中索引依赖</li>
+<li>artifactId：项目生成的制品（常是jar文件）的唯一标识符</li>
+<li>version：项目生成的制品的版本</li>
+<li>properties：属性固定值，类似于宏定义的值</li>
+<li>dependencies：元素的依赖子元素</li>
+</ol>
+<h2><span id="项目管理功能">项目管理功能</span></h2><ol>
+<li>mvn clean:清理项目，删除上一次构建在target目录下的内容。</li>
+<li>mvn validate:验证,验证工程是否正确,所需的信息是否完整。</li>
+<li>mvn compile:编译，Java源程序编译成class字节码文件。</li>
+<li>mvn package:打包，动态打war包，Java工程打jar包</li>
+<li>mvn test：测试</li>
+<li>mvn install：存放，将项目生成的包放在仓库中，便于其他模块调用</li>
+</ol>
+<h2><span id="参考">参考</span></h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/loongkingwhat/article/details/105440169">https://blog.csdn.net/loongkingwhat/article/details/105440169</a><br><a target="_blank" rel="noopener" href="https://maven.apache.org/what-is-maven.html">https://maven.apache.org/what-is-maven.html</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/ABC_wangershao/article/details/123390558">https://blog.csdn.net/ABC_wangershao/article/details/123390558</a><br><a target="_blank" rel="noopener" href="https://www.runoob.com/maven/maven-tutorial.html">https://www.runoob.com/maven/maven-tutorial.html</a></p>
+
+    </div>
+
+</div>
+                <div class="footer">
+    <span>Copyright © 2022 Cleaners&#39; Blog</span>
+    <span>Theme Designed By <a target="_blank" href="https://zheli.design/one-paper">這Li</a></span>
+</div>
+
+
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+
+<script src="/js/highlight.min.js"></script>
+
+
+<script src="/js/highlightjs-line-numbers.js"></script>
+
+
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+</script>
+
+            </div>
+        </div>
+    </body>
+</html>
